@@ -24,7 +24,7 @@ const DashboardLayout = (props: { children: React.ReactNode }) => {
           isProPlan={isProPlan}
           userLimitCount={userLimitCount}
           className={cn(
-            "fixed left-0 z-20 w-80 hidden [&:has([is-sidebar-open])]:w-fit",
+            "fixed left-0 z-20 w-80 hidden [&:has([is-navbar-minimal])]:w-fit",
             "lg:block"
           )}
         />

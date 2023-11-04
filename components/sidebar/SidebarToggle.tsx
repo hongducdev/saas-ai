@@ -1,10 +1,10 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { useSidebarStore } from "@/stores/sidebar-store";
-import React from "react";
-import { Button } from "../ui/button";
-import { X } from "lucide-react";
+
 import Image from "next/image";
+import { X } from "lucide-react";
+
+import { useSidebarStore } from "@/stores/sidebar-store";
+import { Button } from "@/components/ui/button";
 
 const SidebarToggle = () => {
   const { isMinimal, handleChangeSidebar, handleOpenOrClose } =
@@ -13,15 +13,25 @@ const SidebarToggle = () => {
   return (
     <div>
       <div
-        className={cn("cursor-pointer hidden", "lg:block")}
-        onClick={handleChangeSidebar}
+        className="cursor-pointer hidden lg:block"
         is-navbar-minimal={isMinimal ? "true" : undefined}
+        onClick={handleChangeSidebar}
       >
-        <Image src={`/icons/menu-${isMinimal ? "open" : "close"}.svg`} width={24} height={24} alt="navbar icon" />
-        <Button variant="ghost" size="icon" className="lg:hidden">
-          <X />
-        </Button>
+        <Image
+          src={`/icons/menu-${isMinimal ? "open" : "close"}.svg`}
+          width={24}
+          height={24}
+          alt="navbar icon"
+        />
       </div>
+      <Button
+        variant="ghost"
+        className="lg:hidden"
+        onClick={handleOpenOrClose}
+        size="icon"
+      >
+        <X />
+      </Button>
     </div>
   );
 };
